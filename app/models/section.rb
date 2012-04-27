@@ -1,5 +1,8 @@
 class Section < ActiveRecord::Base
   belongs_to :bill
+
+  has_many :revisions
+
   attr_accessible :parent_id, :title, :parent
 
   def initialize

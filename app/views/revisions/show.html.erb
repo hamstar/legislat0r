@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Markup:</b>
+  <%= @revision.markup %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @revision.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_revision_path(@revision) %> |
+<%= link_to 'Back', revisions_path %>
