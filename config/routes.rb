@@ -1,4 +1,6 @@
 Legislator::Application.routes.draw do
+  resources :sections
+
   resources :bills
 
   # The priority is based upon order of creation:
