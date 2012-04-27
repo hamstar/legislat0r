@@ -14,6 +14,7 @@ class SectionsController < ApplicationController
   # GET /sections/1.json
   def show
     @section = Section.find(params[:id])
+    @parent = Section.find(@section.parent_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,10 +31,13 @@ class SectionsController < ApplicationController
 
     @revision = Revision.new(
       :markup => params[:markup], 
-      :comment => "New section called "+params[:title],
+      :comment => "New section called " + params[:title],
       :section => @section
     )
     @revision.save
+    
+    @section.current_revision @revision
+    @section.save
 
     @bill = Bill.find params[:bill_id]
 
@@ -59,6 +63,14 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
   end
 
+  def edit_form
+    @section = Section.find(params[:id])
+
+    render :json => {
+      :html => (render_to_string :partial => "form", :locals => {:section => @section })
+    }
+  end
+
   # POST /sections
   # POST /sections.json
   def create
@@ -80,10 +92,22 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
 
+    @revision = Revision.new(
+      :markup => params[:markup], 
+      :comment => params[:comment],
+      :section => @section
+    )
+    @revision.save
+    
+    @section.current_revision @revision
+    @section.save
+
     respond_to do |format|
       if @section.update_attributes(params[:section])
         format.html { redirect_to @section, notice: 'Section was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :json => {
+          :html => (render_to_string :partial => "section", :formats => [:html], :locals => {:section => @section })
+        }}
       else
         format.html { render action: "edit" }
         format.json { render json: @section.errors, status: :unprocessable_entity }

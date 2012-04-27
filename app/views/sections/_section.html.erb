@@ -1,12 +1,16 @@
-<h1>
-  <%= section.title %> 
-  <span class="edit_link revision-<%= section.current_revision_id %>">
-    <%= link_to 'Edit', edit_section_path(section) %>
-  </span>
-</h1>
+<div class="revision-<%= section.current_revision_id %>-wrapper">
 
-<div class="revision-<%= section.current_revision_id %>">
-  <%= section.formatted %>
+	<h1>
+	  <%= section.title %> 
+	  <span class="edit_link" title="<%= section.current_revision_id %>">
+	    <%= link_to 'Edit', edit_section_path(section) %>
+	  </span>
+	</h1>
+
+	<div class="revision-<%= section.current_revision_id %>">
+	  <%= raw section.formatted %>
+	</div>
+
+	<p class="last_edited">Last edited: <%= section.last_edited %></p>
+
 </div>
-
-<p class="last_edited">Last edited: <%= section.last_edited %></p>

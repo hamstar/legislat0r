@@ -19,11 +19,20 @@ class Section < ActiveRecord::Base
   end
 
   def get_markup
+
+  	if get_current_revision.blank?
+      return ""
+    end
+    
     get_current_revision.markup
   end
 
   def formatted
     
     get_markup + "<br/><br/><strong>Not currently formatted</strong>"
+  end
+
+  def current_revision(revision)
+    self.current_revision_id = revision.id
   end
 end
