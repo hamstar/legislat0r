@@ -1,4 +1,6 @@
 Legislator::Application.routes.draw do
+  resources :comments
+
   resources :revisions
 
   resources :sections

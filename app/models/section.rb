@@ -1,7 +1,7 @@
 class Section < ActiveRecord::Base
   belongs_to :bill
 
-  has_many :revisions
+  has_many :revisions, :comments
 
   attr_accessible :parent_id, :title, :parent, :bill_id
 
