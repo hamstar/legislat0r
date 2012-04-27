@@ -21,6 +21,28 @@ class SectionsController < ApplicationController
     end
   end
 
+  def add
+    @section = Section.new(
+      :bill_id => params[:bill_id],
+      :title => params[:title]
+    )
+    @section.save
+
+    @revision = Revision.new(
+      :markup => params[:markup], 
+      :comment => "New section called "+params[:title],
+      :section => @section
+    )
+    @revision.save
+
+    @bill = Bill.find params[:bill_id]
+
+    respond_to do |format|
+      format.html { redirect_to @bill, notice: 'Section was successfully created.' }
+      format.json { render json: @section }
+    end
+  end
+
   # GET /sections/new
   # GET /sections/new.json
   def new
