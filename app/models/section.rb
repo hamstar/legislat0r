@@ -45,6 +45,15 @@ class Section < ActiveRecord::Base
   def current_revision(revision)
     self.current_revision_id = revision.id
   end
+
+  def parent
+    if parent_id.blank?
+      return nil
+    end
+
+    Section.find parent_id
+  end
+
   private
 
   # A section should always have a revision
