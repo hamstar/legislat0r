@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Markdown</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +12,7 @@
 <% @bills.each do |bill| %>
   <tr>
     <td><%= bill.name %></td>
+    <td><%= bill.markdown %></td>
     <td><%= link_to 'Show', bill %></td>
     <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
     <td><%= link_to 'Destroy', bill, confirm: 'Are you sure?', method: :delete %></td>

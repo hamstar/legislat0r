@@ -5,3 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Bill.create({name: "Template", markdown: "# Title 1
+
+## Article 1
+
+Legislation goes here
+
+## Article 2
+
+Legislation goes here
+
+# Title 2
+
+## Article 1
+
+Legislation goes here
+
+## Article 2
+
+Legislation goes here"})

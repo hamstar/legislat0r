@@ -1,4 +1,3 @@
 class Bill < ActiveRecord::Base
-  has_many :sections
-  attr_accessible :name
+  attr_accessible :markdown, :name
 end
