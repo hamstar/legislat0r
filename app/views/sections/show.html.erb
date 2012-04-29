@@ -1,15 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @section.title %>
-</p>
+<h1>Section: <%= @section.title %></h1>
+<% if @parent.present? %>
+  <p class="section_parent">Child of <%= link_to @parent.title, @parent %></p>
+<% end %>
 
-<p>
-  <b>Parent:</b>
-  <%= @section.parent_id %>
-</p>
+<h2>Current Revision: <%= link_to @current_revision.id, @current_revision %></h2>
+<h3>Markup Content</h3>
+<pre>
+  <%= @section.get_markup %>
+</pre>
 
+<h3>Formatted Content</h3>
+<div>
+  <%= markdown @section.formatted %>
+</div>
+
+<h2>Revisions</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Revision</th>
+			<th>When</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @section.revisions.each do |r| %>
+		<tr>
+			<td><%= link_to r.id, r %></td>
+			<td><%= time_ago_in_words r.created_at %></td>
+			<td><%= r.comment %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', sections_path %>

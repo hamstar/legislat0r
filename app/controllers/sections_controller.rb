@@ -14,11 +14,17 @@ class SectionsController < ApplicationController
   # GET /sections/1.json
   def show
     @section = Section.find(params[:id])
-    @parent = Section.find(@section.parent_id)
+    @parent = @section.parent
+    @current_revision = @section.get_current_revision
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @section }
+      format.json { render :json => {
+          section: @section,
+          parent: @parent,
+          current_revision: @current_revision
+        } 
+      }
     end
   end
 
