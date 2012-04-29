@@ -1,19 +1,16 @@
 class Section < ActiveRecord::Base
-  class HasNoRevision < StandardError
-  end
 
   belongs_to :bill
 
   has_many :revisions
   has_many :comments
+  belongs_to :revision
 
-  attr_accessible :parent_id, :title, :parent, :bill_id
-
-  before_save :check_has_revision
+  attr_accessible :parent_id, :title, :parent, :bill_id, :bill, :revision
 
   validates :title, :presence => true
-  validates :bill_id, :presence => true
-  validates :bill_id, :numericality => true
+  validates :bill, :presence => true
+  validates :revision, :presence => true
 
   def subsections
   	#Section.find :conditions => [ "parent_id = ?", self.id ], :order => "title ASC"
@@ -47,19 +44,5 @@ class Section < ActiveRecord::Base
     end
 
     Section.find parent_id
-  end
-
-  private
-
-  # A section should always have a revision
-  def check_has_revision
-    revision = get_current_revision
-    if revision.blank?
-      revision = Revision.create({section: self, comment: "Section #{title} created"})
-      current_revision = revision
-      current_revision_id = revision.id
-    end
-
-    raise HasNoRevision unless revision.present? 
   end
 end

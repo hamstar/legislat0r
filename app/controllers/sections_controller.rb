@@ -41,23 +41,21 @@ class SectionsController < ApplicationController
   end
 
   def add
-    @section = Section.new(
-      :bill_id => params[:bill_id],
-      :title => params[:title]
-    )
-    @section.save
+    @bill = Bill.find params[:bill_id]
+
+    @section = Section.new
+    @section.title = params[:title]
+    @section.bill = @bill
 
     @revision = Revision.new(
       :markup => params[:markup], 
       :comment => "New section called " + params[:title],
-      :section => @section
     )
-    @revision.save
+    @revision.section = @section
     
-    @section.current_revision @revision
+    @section.revisions << @revision # add this to the sections revision
+    @section.revision = @revision # set this as the current revision
     @section.save
-
-    @bill = Bill.find params[:bill_id]
 
     respond_to do |format|
       format.html { redirect_to @bill, notice: 'Section was successfully created.' }

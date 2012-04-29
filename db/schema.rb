@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427193830) do
+ActiveRecord::Schema.define(:version => 20120429021955) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120427193830) do
     t.datetime "updated_at",          :null => false
     t.integer  "current_revision_id"
     t.integer  "bill_id"
+    t.integer  "revision_id"
   end
 
 end
