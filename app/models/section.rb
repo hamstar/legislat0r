@@ -1,9 +1,14 @@
 class Section < ActiveRecord::Base
   belongs_to :bill
 
-  has_many :revisions, :comments
+  has_many :revisions
+  has_many :comments
 
   attr_accessible :parent_id, :title, :parent, :bill_id
+
+  validates :title, :presence => true
+  validates :bill_id, :presence => true
+  validates :bill_id, :numericality => true
 
   def subsections
   	#Section.find :conditions => [ "parent_id = ?", self.id ], :order => "title ASC"
