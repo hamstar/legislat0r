@@ -18,7 +18,7 @@ class BillsControllerTest < ActionController::TestCase
 
   test "should create bill" do
     assert_difference('Bill.count') do
-      post :create, bill: { name: @bill.name }
+      post :create, bill: { markdown: @bill.markdown, name: @bill.name }
     end
 
     assert_redirected_to bill_path(assigns(:bill))
@@ -35,7 +35,7 @@ class BillsControllerTest < ActionController::TestCase
   end
 
   test "should update bill" do
-    put :update, id: @bill, bill: { name: @bill.name }
+    put :update, id: @bill, bill: { markdown: @bill.markdown, name: @bill.name }
     assert_redirected_to bill_path(assigns(:bill))
   end
 

@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  markdown: MyText
 
 two:
   name: MyString
+  markdown: MyText
