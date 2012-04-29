@@ -1,6 +1,6 @@
 # Legislat0r
 
-An open source system for crowdsourcing creation and analysis of legislature.  Inspired by [Free Internet Activism] and [this discussion about crowdsourced legislation software](http://www.reddit.com/r/fia/comments/swu5r/please_take_a_minute_and_read_legislation_20/).
+An open source system for crowdsourcing creation and analysis of legislature.  Inspired by [Free Internet Activism](http://www.reddit.com/r/fia) and [this discussion about crowdsourced legislation software](http://www.reddit.com/r/fia/comments/swu5r/please_take_a_minute_and_read_legislation_20/).
 
 ## Problem this software addresses
 
