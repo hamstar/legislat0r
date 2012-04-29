@@ -1,32 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div id="logbar" style="float: right; height: 100%; width: 300px; background: #c0c0c0; overflow: scroll">
 
-<p class="title"><%= @bill.name %></p>
-
-<div class="add_section">
-  <%= form_tag(  "/sections/add", :method => "post" ) do %>
-	  <div class="field">
-	    <%= label_tag :title %><br />
-	    <%= text_field_tag :title %>
-	  </div>
-	  <div class="field">
-	    <%= label_tag :markup, "Markup" %><br />
-	    <%= text_area_tag :markup %>
-	  </div>
-	  <%= hidden_field_tag :bill_id, @bill.id %>
-	  <div class="actions">
-	    <%= submit_tag("Create") %>
-	  </div>
-  <% end %>
 </div>
 
-<div id="bill_text">
-  <% if @bill.sections.count > 0 %>
-	  <% @bill.sections.each do |section| %>
-	    <%= render :partial => "sections/section", :locals => { :section => section } %>
+<div style="float:left; width: 700px">
+	<p id="notice"><%= notice %></p>
+
+	<p class="title"><%= @bill.name %></p>
+
+	<div class="add_section">
+	<h2>Add new Section</h2>
+	  <%= form_tag(  "/sections/add", :method => "post" ) do %>
+		  <div class="field">
+		    <%= label_tag :title %><br />
+		    <%= text_field_tag :title %>
+		  </div>
+		  <div class="field">
+		    <%= label_tag :markup, "Markup" %><br />
+		    <%= text_area_tag :markup %>
+		  </div>
+		  <%= hidden_field_tag :bill_id, @bill.id %>
+		  <div class="actions">
+		    <%= submit_tag("Create") %>
+		  </div>
 	  <% end %>
-  <% end %>
-  <%#= render_sections @bill.sections %>
-</div>
+	</div>
 
-<%= link_to 'Edit', edit_bill_path(@bill) %> |
-<%= link_to 'Back', bills_path %>
+	<div id="bill_text">
+	  <% if @bill.sections.count > 0 %>
+		  <% @bill.sections.each do |section| %>
+		    <%= render :partial => "sections/section", :locals => { :section => section } %>
+		  <% end %>
+	  <% end %>
+	  <%#= render_sections @bill.sections %>
+	</div>
+
+	<%= link_to 'Edit', edit_bill_path(@bill) %> |
+	<%= link_to 'Back', bills_path %>
+</div>
