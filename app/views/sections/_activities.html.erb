@@ -1,0 +1,12 @@
+<% @objects.each do |o| %>
+
+<div class="activity <%= o.class.name.downcase %>">
+  <% if o.class.name == "Revision" %>
+    <p>Revision <%= link_to o.id, o %> was created about <%= time_ago_in_words o.created_at %> ago</p>
+	  <% if o.comment.present? %>
+	    <blockquote><%= o.comment %></blockquote>
+      <% end %>
+  <% end %>
+</div>
+
+<% end %>

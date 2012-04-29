@@ -61,6 +61,7 @@ Legislator::Application.routes.draw do
    match '/sections/add' => "sections#add"
 
    match '/sections/:id/edit_form' => "sections#edit_form"
+   match '/sections/:id/activities' => "sections#activities"
 
   # See how all your routes lay out with "rake routes"
 

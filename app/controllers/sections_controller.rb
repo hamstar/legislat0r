@@ -28,6 +28,18 @@ class SectionsController < ApplicationController
     end
   end
 
+  def activities
+    @section = Section.find(params[:id])
+    @objects = Array.new
+    @objects += @section.revisions
+    @objects += @section.comments
+    @objects.sort_by( &:created_at )
+
+    render :json => {
+      :html => (render_to_string :partial => "activities", :locals => {:objects => @objects })
+    }
+  end
+
   def add
     @section = Section.new(
       :bill_id => params[:bill_id],
