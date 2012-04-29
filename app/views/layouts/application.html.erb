@@ -9,7 +9,23 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="wrapper">
+	<div id="header">
+		<p style="font-size: xx-large;">Legislat0r!</p>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/bills">Bills</a></li>
+			<li><a href="/sections">Sections</a></li>
+			<li><a href="/revisions">Revisions</a></li>
+			<li><a href="/comments">Comments</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<%= yield %>
+	</div>
+</div>
 
 </body>
 </html>
