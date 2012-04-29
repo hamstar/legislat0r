@@ -37,11 +37,6 @@ class Section < ActiveRecord::Base
     get_current_revision.markup
   end
 
-  def formatted
-    
-    "# This has been rendered\n\n" + get_markup
-  end
-
   def current_revision(revision)
     self.current_revision_id = revision.id
   end

@@ -17,7 +17,7 @@
 	</h1>
 
 	<div class="revision-<%= section.current_revision_id %>">
-	  <%= markdown section.formatted %>
+	  <%= markdown section.get_markup %>
 	</div>
 
 	<p class="last_edited">Last edited: <%= section.last_edited %></p>
