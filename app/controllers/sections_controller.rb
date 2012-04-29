@@ -92,15 +92,17 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
 
-    @revision = Revision.new(
-      :markup => params[:markup], 
-      :comment => params[:comment],
-      :section => @section
-    )
-    @revision.save
-    
-    @section.current_revision @revision
-    @section.save
+    if Digest::MD5.hexdigest(@section.get_markup) != Digest::MD5.hexdigest(params[:markup])
+      @revision = Revision.new(
+        :markup => params[:markup], 
+        :comment => params[:comment],
+        :section => @section
+      )
+      @revision.save
+      
+      @section.current_revision @revision
+      @section.save
+    end
 
     respond_to do |format|
       if @section.update_attributes(params[:section])
