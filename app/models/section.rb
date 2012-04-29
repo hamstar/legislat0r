@@ -39,7 +39,7 @@ class Section < ActiveRecord::Base
 
   def formatted
     
-    get_markup + "<br/><br/><strong>Not currently formatted</strong>"
+    "# This has been rendered\n\n" + get_markup
   end
 
   def current_revision(revision)
