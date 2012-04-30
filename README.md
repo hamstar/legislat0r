@@ -2,7 +2,11 @@
 
 An open source system for crowdsourcing creation and analysis of legislature.  Inspired by [Free Internet Activism](http://www.reddit.com/r/fia) and [this discussion about crowdsourced legislation software](http://www.reddit.com/r/fia/comments/swu5r/please_take_a_minute_and_read_legislation_20/).
 
-Please check out **[the legistlator subreddit](http://www.reddit.com/r/Legislator/)**!
+**Please check out:**
+
+* **[The legistlator subreddit](http://www.reddit.com/r/Legislator/)**
+* **[The legislator wiki](https://github.com/hamstar/legislat0r/wiki)**
+* **[The features to be developed](https://github.com/hamstar/legislat0r/issues)**
 
 ## Introduction
 
