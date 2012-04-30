@@ -1,6 +1,6 @@
 # Legislat0r
 
-An open source system for crowdsourcing creation and analysis of legislature.  Inspired by [Free Internet Activism](http://www.reddit.com/r/fia) and [this discussion about crowdsourced legislation software](http://www.reddit.com/r/fia/comments/swu5r/please_take_a_minute_and_read_legislation_20/).
+An open source system for crowdsourcing the creation and analysis of legislation.  Inspired by [Free Internet Activism](http://www.reddit.com/r/fia) and [this discussion about crowdsourced legislation software](http://www.reddit.com/r/fia/comments/swu5r/please_take_a_minute_and_read_legislation_20/).
 
 **Please check out:**
 
@@ -22,7 +22,7 @@ It really is a dual purpose site - learning about legislation by analyzing legis
 
 ## Goals of this software
 
-The goal of this software is to get people involved in the creation and analysis of legislature by lowering the barriers to entry and increasing the incentive to participation.
+The goal of this software is to get people involved in the creation and analysis of legislation by lowering the barriers to entry and increasing the incentive to participation.
 
 The software should be used to explain, analyse, adjust and interconnect legislation that is already in existence.  During that process it should educate the users to allow them to provide more meaningful help and better understand the legislation of their country.
 
