@@ -20,6 +20,8 @@ Legislator::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # ISSUE: We will need to set up the mailing system, see issue #59
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
