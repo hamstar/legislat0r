@@ -1,4 +1,6 @@
 Legislator::Application.routes.draw do
+  devise_for :users
+
   resources :bills
 
   # The priority is based upon order of creation:
@@ -50,6 +52,9 @@ Legislator::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  #
+  # ISSUE: This routing is temporary, as we only have one controller as of 5/2/2012.
+  # When we figure out where the index of this site actually goes, we'll need to change it
    root :to => 'bills#index'
 
   # See how all your routes lay out with "rake routes"
