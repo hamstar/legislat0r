@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @bill.name
+%p
+  %b Markdown:
+  = @bill.markdown
+= link_to 'Edit', edit_bill_path(@bill)
+|
+\#{link_to 'Back', bills_path}
